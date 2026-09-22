@@ -103,6 +103,7 @@ const restartBtn = document.getElementById('restartBtn');
 const homeBtn = document.getElementById('homeBtn');
 const soundToggle = document.getElementById('soundToggle');
 const menuCards = document.querySelectorAll('.menu-card');
+const topbar = document.querySelector('.topbar');
 const welcomeScreen = document.getElementById('welcomeScreen');
 const startBtn = document.getElementById('startBtn');
 const menuScreen = document.getElementById('menuScreen');
@@ -654,6 +655,7 @@ function toggleSound() {
 }
 
 function showMenu() {
+  topbar.classList.toggle('hidden', false);
   welcomeScreen.classList.toggle('hidden', true);
   menuScreen.classList.toggle('hidden', false);
   gameView.classList.toggle('hidden', true);
@@ -661,6 +663,7 @@ function showMenu() {
 }
 
 function showWelcome() {
+  topbar.classList.toggle('hidden', true);
   welcomeScreen.classList.toggle('hidden', false);
   menuScreen.classList.toggle('hidden', true);
   gameView.classList.toggle('hidden', true);
