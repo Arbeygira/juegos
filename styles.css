@@ -186,6 +186,12 @@ h1 {
   object-position: center;
 }
 
+.welcome-images img:nth-child(2) {
+  width: min(100%, 280px);
+  max-height: 155px;
+  transform: translateY(-0.7rem);
+}
+
 .menu-header {
   margin-bottom: 1rem;
 }
@@ -534,6 +540,12 @@ h1 {
   .welcome-images img:first-child {
     height: 260px;
     max-height: none;
+  }
+
+  .welcome-images img:nth-child(2) {
+    width: min(100%, 240px);
+    max-height: 125px;
+    transform: translateY(-0.4rem);
   }
 
   .app {
