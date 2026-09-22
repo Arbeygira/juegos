@@ -179,7 +179,11 @@ h1 {
 }
 
 .welcome-images img:first-child {
-  max-height: 300px;
+  width: min(100%, 440px);
+  height: 390px;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
 }
 
 .menu-header {
@@ -528,7 +532,8 @@ h1 {
   }
 
   .welcome-images img:first-child {
-    max-height: 210px;
+    height: 260px;
+    max-height: none;
   }
 
   .app {
