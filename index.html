@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1e9d69" />
+    <title>Juegos de Hábitos Saludables</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Juego educativo</p>
+          <h1>Hábitos Saludables</h1>
+        </div>
+
+        <div class="toolbar">
+          <button id="soundToggle" class="sound-btn" type="button" aria-label="Activar o desactivar sonido">🔊 Sonido</button>
+          <button id="homeBtn" class="home-btn" type="button">🏠 Inicio</button>
+          <button id="restartBtn" class="restart-btn" type="button">Reiniciar</button>
+        </div>
+      </header>
+
+      <section id="menuScreen" class="menu-screen">
+        <div class="menu-header">
+          <p class="quiz-tag">Elige tu juego</p>
+          <h2>Aprende jugando con hábitos saludables</h2>
+        </div>
+
+        <div class="menu-grid">
+          <button class="menu-card" data-mode="good" type="button">
+            <span class="menu-emoji">💪</span>
+            <strong>Buenos hábitos</strong>
+            <small>Busca parejas con acciones saludables.</small>
+          </button>
+
+          <button class="menu-card" data-mode="bad" type="button">
+            <span class="menu-emoji">⚠️</span>
+            <strong>Malos hábitos</strong>
+            <small>Identifica hábitos que afectan la salud.</small>
+          </button>
+
+          <button class="menu-card" data-mode="quiz" type="button">
+            <span class="menu-emoji">❓</span>
+            <strong>Preguntas</strong>
+            <small>Responde según la Resolución 3280 de 2018.</small>
+          </button>
+
+          <button class="menu-card" data-mode="sort" type="button">
+            <span class="menu-emoji">🧠</span>
+            <strong>Clasifica</strong>
+            <small>Decide si una acción es saludable o no.</small>
+          </button>
+
+          <button class="menu-card" data-mode="routine" type="button">
+            <span class="menu-emoji">🕒</span>
+            <strong>Rutina saludable</strong>
+            <small>Ordena la mejor secuencia del día.</small>
+          </button>
+
+          <button class="menu-card" data-mode="truefalse" type="button">
+            <span class="menu-emoji">✅</span>
+            <strong>Verdadero o falso</strong>
+            <small>Comprueba tus conocimientos con situaciones reales.</small>
+          </button>
+        </div>
+      </section>
+
+      <section id="gameView" class="game-view hidden">
+        <section class="hud" aria-label="Estadísticas del juego">
+          <div class="badge">
+            <span id="statLabel1">Movimientos</span>
+            <strong id="statValue1">0</strong>
+          </div>
+          <div class="badge">
+            <span id="statLabel2">Tiempo</span>
+            <strong id="statValue2">00:00</strong>
+          </div>
+          <div class="badge">
+            <span id="statLabel3">Parejas</span>
+            <strong id="statValue3">0/8</strong>
+          </div>
+        </section>
+
+        <div id="status" class="status" aria-live="polite">
+          Selecciona un juego para comenzar.
+        </div>
+
+        <section id="memoryMode" class="panel hidden" aria-label="Tablero de parejas">
+          <div class="game-header">
+            <h2 id="gameTitle">Buenos hábitos</h2>
+          </div>
+          <section id="gameBoard" class="game-board" aria-label="Tablero del juego"></section>
+        </section>
+
+        <section id="quizMode" class="panel hidden" aria-label="Modo de preguntas y respuestas">
+          <div class="quiz-card">
+            <p class="quiz-tag">Resolución 3280 de 2018</p>
+            <h2 id="questionText">Pregunta</h2>
+            <div id="answerButtons" class="answer-buttons"></div>
+          </div>
+        </section>
+
+        <section id="sortMode" class="panel hidden" aria-label="Modo de clasificación">
+          <div class="sort-card">
+            <div class="sort-header">
+              <p class="quiz-tag">Juego de clasificación</p>
+              <h2 id="sortQuestion">¿Cómo clasificarías esta acción?</h2>
+            </div>
+            <div id="sortItem" class="sort-item" aria-live="polite"></div>
+            <div class="sort-controls">
+              <button class="sort-btn good-btn" type="button" data-answer="good">Saludable</button>
+              <button class="sort-btn bad-btn" type="button" data-answer="bad">No saludable</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="routineMode" class="panel hidden" aria-label="Modo de rutina saludable">
+          <div class="sort-card">
+            <div class="sort-header">
+              <p class="quiz-tag">Ordena la rutina</p>
+              <h2>¿Cuál es el orden correcto para un día saludable?</h2>
+            </div>
+            <div id="routineList" class="routine-list" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <section id="trueFalseMode" class="panel hidden" aria-label="Modo verdadero o falso">
+          <div class="sort-card">
+            <div class="sort-header">
+              <p class="quiz-tag">Verdadero o falso</p>
+              <h2 id="trueFalseQuestion">Pregunta</h2>
+            </div>
+            <div class="sort-controls">
+              <button class="sort-btn good-btn" type="button" data-answer="true">Verdadero</button>
+              <button class="sort-btn bad-btn" type="button" data-answer="false">Falso</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
