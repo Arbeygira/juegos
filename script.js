@@ -103,6 +103,8 @@ const restartBtn = document.getElementById('restartBtn');
 const homeBtn = document.getElementById('homeBtn');
 const soundToggle = document.getElementById('soundToggle');
 const menuCards = document.querySelectorAll('.menu-card');
+const welcomeScreen = document.getElementById('welcomeScreen');
+const startBtn = document.getElementById('startBtn');
 const menuScreen = document.getElementById('menuScreen');
 const gameView = document.getElementById('gameView');
 const memoryMode = document.getElementById('memoryMode');
@@ -652,9 +654,16 @@ function toggleSound() {
 }
 
 function showMenu() {
+  welcomeScreen.classList.toggle('hidden', true);
   menuScreen.classList.toggle('hidden', false);
   gameView.classList.toggle('hidden', true);
   statusEl.textContent = 'Selecciona un juego para comenzar.';
+}
+
+function showWelcome() {
+  welcomeScreen.classList.toggle('hidden', false);
+  menuScreen.classList.toggle('hidden', true);
+  gameView.classList.toggle('hidden', true);
 }
 
 restartBtn.addEventListener('click', () => {
@@ -685,6 +694,8 @@ homeBtn.addEventListener('click', () => {
   showMenu();
 });
 
+startBtn.addEventListener('click', showMenu);
+
 soundToggle.addEventListener('click', toggleSound);
 menuCards.forEach((button) => {
   button.addEventListener('click', () => setMode(button.dataset.mode));
@@ -704,4 +715,4 @@ document.querySelectorAll('.sort-btn').forEach((button) => {
 });
 
 updateStats();
-showMenu();
+showWelcome();

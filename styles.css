@@ -115,6 +115,73 @@ h1 {
   padding: 1rem 0 0.2rem;
 }
 
+.welcome-screen {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr);
+  align-items: center;
+  gap: 1.8rem;
+  min-height: 500px;
+  padding: 2.2rem 1rem 1rem;
+}
+
+.welcome-copy h2 {
+  max-width: 520px;
+  margin: 0.25rem 0 0.8rem;
+  font-family: "Baloo 2", cursive;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 0.98;
+  color: var(--primary-dark);
+}
+
+.welcome-message {
+  max-width: 520px;
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.welcome-student {
+  margin: 1rem 0 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.start-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.95rem 1.8rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  font-weight: 800;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(30, 157, 105, 0.3);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(30, 157, 105, 0.35);
+}
+
+.welcome-images {
+  display: grid;
+  justify-items: center;
+  gap: 1.2rem;
+}
+
+.welcome-images img {
+  display: block;
+  width: min(100%, 340px);
+  max-height: 190px;
+  object-fit: contain;
+}
+
+.welcome-images img:first-child {
+  max-height: 300px;
+}
+
 .menu-header {
   margin-bottom: 1rem;
 }
@@ -435,6 +502,35 @@ h1 {
 }
 
 @media (max-width: 520px) {
+  .welcome-screen {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 1.5rem 0.2rem 0.5rem;
+    text-align: center;
+  }
+
+  .welcome-copy h2,
+  .welcome-message {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .welcome-student {
+    font-size: 0.9rem;
+  }
+
+  .welcome-images {
+    order: -1;
+  }
+
+  .welcome-images img {
+    max-height: 140px;
+  }
+
+  .welcome-images img:first-child {
+    max-height: 210px;
+  }
+
   .app {
     padding: 1rem 0.85rem 1.3rem;
   }
