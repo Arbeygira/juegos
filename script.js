@@ -60,7 +60,7 @@ const trueFalseQuestions = [
 
 const quizQuestions = [
   {
-    question: 'Según la Resolución 3280 de 2018, ¿qué favorece más los hábitos saludables?',
+    question: 'Según la Resolución 3280 de 2018, ¿qué favorece más los juegos de salud?',
     options: ['Dormir menos de 5 horas', 'Actividad física regular y alimentación balanceada', 'Consumir solo dulces'],
     correctIndex: 1,
     explanation: 'La actividad física regular y una alimentación balanceada fortalecen la salud y previenen enfermedades.'
@@ -310,7 +310,7 @@ function setMode(mode) {
 
   if (mode === 'good') {
     gameTitle.textContent = 'Buenos hábitos';
-    statusEl.textContent = 'Encuentra las parejas de hábitos saludables.';
+    statusEl.textContent = 'Encuentra las parejas de juegos de salud.';
     resetMemoryGame();
     return;
   }
@@ -419,7 +419,7 @@ function handleMemoryCardClick(cardElement) {
       secondCard.classList.remove('is-flipped');
       flippedCards = [];
       isBoardLocked = false;
-      statusEl.textContent = currentMode === 'good' ? 'Sigue buscando hábitos saludables.' : 'Sigue analizando los hábitos poco saludables.';
+      statusEl.textContent = currentMode === 'good' ? 'Sigue buscando juegos de salud.' : 'Sigue analizando los hábitos poco saludables.';
     }, 800);
   }
 }
